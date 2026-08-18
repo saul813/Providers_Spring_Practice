@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Warehouse Inventory Screen</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f6f9; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #007bff; color: white; }
+    </style>
+</head>
+<body>
+    <h2>Real-Time Warehouse Inventory Stock</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Item Name</th>
+                <th>Available Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- This loop runs dynamically on the server to print out every database record -->
+            <tr th:each="product : ${products}">
+                <td th:text="${product.id}">1</td>
+                <td th:text="${product.name}">Item</td>
+                <td th:text="${product.quantity}">0</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
